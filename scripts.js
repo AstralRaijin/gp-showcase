@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.product-section');
-
-    const observer = new IntersectionObserver((entries) => {
+    const cards = document.querySelectorAll('.card');
+    const observer = new window.IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    cards.forEach(card => observer.observe(card));
 });
